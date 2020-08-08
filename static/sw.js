@@ -1,6 +1,6 @@
-const CACHE_NAME = "liburanku";
+const CACHE_NAME = "liburanku-v2";
 var urlsToCache = [
-  "/index.html",
+  "index.html",
   "/app.js",
   "/css/materialize.min.css",
   "/images/ava.jpeg",

@@ -74,9 +74,9 @@ export default {
         tx.executeSql(
           "SELECT * FROM tabungan",
           [],
-          async (tx, results) => {
+          (tx, results) => {
             console.log(results.rows);
-            await Object.keys(results.rows).forEach((key) => {
+            Object.keys(results.rows).forEach((key) => {
               if (key !== "length") {
                 this.dataList.push(results.rows[key]);
               }
