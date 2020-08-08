@@ -44,7 +44,7 @@ export default {
         tx.executeSql(
           "SELECT COUNT(*) FROM liburan",
           [],
-          async (tx, results) => {
+          (tx, results) => {
             this.jumlahLiburan = results.rows[0]['COUNT(*)']
           },
           null
@@ -56,7 +56,7 @@ export default {
         tx.executeSql(
           "SELECT * FROM tabungan",
           [],
-          async (tx, results) => {
+          (tx, results) => {
             console.log(results.rows[0]);
             [...results.rows].forEach(element => {
               this.jumlahTabungan += parseInt(element.amount, 10)
