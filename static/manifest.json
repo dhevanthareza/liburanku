@@ -1,0 +1,16 @@
+{
+  "name": "Liburanku",
+  "short_name": "Liburanku",
+  "description": "Aplikasi mencatat rencana liburan",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#00897B",
+  "theme_color": "#00897B",
+  "icons": [
+      {
+          "src": "icon.ico",
+          "sizes": "512x512",
+          "type": "image/png"
+      }
+  ]
+}

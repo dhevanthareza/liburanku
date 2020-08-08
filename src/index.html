@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Liburanku</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="/css/materialize.min.css"
+      media="screen,projection"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#00897B" />
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function() {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then(function() {
+              console.log("Pendaftaran ServiceWorker berhasil");
+            })
+            .catch(function() {
+              console.log("Pendaftaran ServiceWorker gagal");
+            });
+        });
+      } else {
+        console.log("ServiceWorker belum didukung browser ini.");
+      }
+    </script>
+  </head>
+  <body>
+    <div id="liburanku">
+      <div id="navigation">
+        <nav>
+          <div class="nav-wrapper">
+            <a
+              data-target="slide-out"
+              class="waves-light btn-flat sidenav-trigger"
+              style="display: block; color: white;"
+              class="my-btn"
+              ><i class="material-icons">menu</i></a
+            >
+          </div>
+        </nav>
+        <ul id="slide-out" class="sidenav" ref="sidenav">
+          <li>
+              <div class="user-view">
+                <div class="background">
+                  <img src="/images/bg.jpeg" />
+                </div>
+                <a href="#user"><img class="circle" src="/images/ava.jpeg" /></a>
+                <a href="#name"><span class="white-text name">Dhevan</span></a>
+                <a href="#email"
+                  ><span class="white-text email">dhevanmuhamad@gmail.com</span></a
+                >
+              </div>
+            </li>
+          <li v-for="page in pageList">
+            <a class="btn-flat" @click="currentPage = page.page"
+              ><i class="material-icons">cloud</i>{{ page.title }}</a
+            >
+            <!-- </li>
+            <li><a href="#!">Second Link</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="subheader">Subheader</a></li>
+            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li> -->
+          </li>
+        </ul>
+      </div>
+      <div class="container" style="margin-top: 50px">
+        <component v-bind:is="currentPage"></component>
+      </div>
+    </div>
+  </body>
+</html>
